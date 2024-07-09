@@ -10,7 +10,6 @@
    - [Technologies Used](#technologies-used)
    - [Code Structure](#code-structure)
 3. [Usage](#3-usage)
-   - [Usage Instructions](#usage-instructions)
 4. [Future Enhancements](#4-future-enhancements)
 5. [Contact Information](#5-contact-information)
 
@@ -44,6 +43,8 @@ Shop-Next is an online e-commerce platform designed to provide users with a seam
 
 
 ### Product Listing
+<img width="1440" alt="Screenshot 2024-07-10 at 2 04 50 AM" src="https://github.com/ankita2220/CODTECH-Internship-Task2/assets/141556515/766caf9c-08b6-4c93-bb1a-360f596e9259">
+
    
 ### Signup/Signin
 <img width="1440" alt="Screenshot 2024-07-03 at 4 01 52 AM" src="https://github.com/ankita2220/CODTECH-Internship-Task2/assets/141556515/57804e20-a434-41ff-aab3-625ee4c7c837">
@@ -68,19 +69,30 @@ Shop-Next is an online e-commerce platform designed to provide users with a seam
 - **JavaScript:** Implementing interactive features and client-side logic.
 
 ### Code Structure
-- **index.html:** Entry point for the frontend application, defining the layout and structure.
-- **styles.css:** CSS stylesheets for visual design and responsiveness.
-- **app.js:** Frontend JavaScript file handling user interactions and dynamic content rendering.
+
+- **index.html:** Main entry point for the frontend application.
+- **styles.css:** CSS stylesheets for styling the application.
+- **card.js:** JavaScript file handling user card details interactions and dynamic content rendering.
+- **shipping.html:** Page for entering shipping address details.
+- **Signup/signup.html:** Page for user registration.
+- **Signin/signin.html:** Page for user login.
+- **Dress.js:** JavaScript file handling interactions specific to dress-related functionalities.
+- **homeAndFurniture.html:** Page specific to categories like home and furniture.
 - **database.js:** Database configuration and schema definitions for storing product and user data.
+- **IMAGE-FOLDER/**: Folder containing images used in the application.
+
 
 ## 3. Usage
 
-### Usage Instructions
 - **Browse Products:** Navigate through categories, view product details, and add items to the cart.
-- **Search and Filter:** Use search bar and filters to find products based on brand, price range, etc.
+- **Search and Filter:** Use the search bar and filters to find products based on brand, price range, etc.
 - **Cart Management:** Review items in the cart, adjust quantities, and proceed to checkout.
 - **Payment:** Enter payment details securely and complete the purchase.
-
+- **Account Management:** Access and update user profile information.
+- **Wishlist:** Save desired items for future purchase or reference.
+- **Customer Support:** Contact support for assistance with orders, returns, or other inquiries.
+- **Promotions and Discounts:** Apply discount codes or view ongoing promotions.
+- **Settings:** Customize preferences such as notification settings or language preferences.
 
 ## 4. Future Enhancements
 Future enhancements for Shop-Next could include:
