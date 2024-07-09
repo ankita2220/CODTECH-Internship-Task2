@@ -1,0 +1,136 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta http-equiv="X-UA-Compatible" content="IE=edge">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Sign In</title>
+  
+  <style>
+    /* Base styles for the sign-in form */
+    body {
+      font-family: Arial, sans-serif;
+      background-color: #f0f0f0;
+      display: flex;
+      justify-content: center;
+      align-items: center;
+      height: 100vh;
+      margin: 0;
+    }
+
+    form {
+      width: 100%;
+      max-width: 400px;
+      background-color: #fff;
+      padding: 20px;
+      border-radius: 10px;
+      box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    }
+
+    h2 {
+      text-align: center;
+    }
+
+    hr {
+      margin-top: 20px;
+      margin-bottom: 20px;
+      border: none;
+      border-top: 1px solid #ddd;
+    }
+
+    p {
+      text-align: center;
+      color: gray;
+    }
+
+    input[type="text"],
+    input[type="password"],
+    button {
+      width: 100%;
+      padding: 12px;
+      margin-top: 10px;
+      margin-bottom: 10px;
+      border: 1px solid #ccc;
+      border-radius: 5px;
+      box-sizing: border-box;
+    }
+
+    button {
+      background-color: #4CAF50;
+      color: white;
+      border: none;
+      cursor: pointer;
+    }
+
+    button:hover {
+      background-color: #45a049;
+    }
+
+    .btn {
+      text-align: center;
+      margin-top: 10px;
+      margin-bottom: 10px;
+    }
+
+    .btn a {
+      text-decoration: none;
+      color: #333;
+    }
+
+    .btn a:hover {
+      color: #555;
+    }
+  </style>
+</head>
+<body>
+  <form id="signInForm">
+    <h2>Sign In</h2>
+    <hr>
+    <p>Sign in to manage your account</p>
+
+    <label for="email">Email*</label>
+    <input id="email" type="text" required>
+
+    <label for="password">Password*</label>
+    <input id="password" type="password" required>
+
+    <button type="submit">SIGN IN</button>
+
+    <hr>
+  
+    <p>Welcome TO SHOP-NEXT! It's quick and easy to set up an account</p>
+    <div class="btn">
+      <h2><a href="signup.html">CREATE AN ACCOUNT</a><h2></h2>
+    </div>
+  </form>
+
+  <script>
+    // JavaScript for handling form submission and validation
+    let form = document.getElementById("signInForm");
+    let userData = JSON.parse(localStorage.getItem("userData")) || [];
+
+    form.addEventListener("submit", function(e) {
+      e.preventDefault();
+      let email = document.getElementById("email").value;
+      let password = document.getElementById("password").value;
+
+      if (checkSignin(email, password)) {
+        // If sign-in is successful
+        localStorage.setItem("currentUser", email); // Example of storing current user
+        alert("Sign in Successful!");
+        window.location.href = "index.html"; // Redirect to dashboard or home page
+      } else {
+        // If sign-in fails
+        alert("Wrong Credentials. Please try again.");
+      }
+    });
+
+    function checkSignin(email, password) {
+      let userFound = userData.some(function(user) {
+        return user.email === email && user.password === password;
+      });
+      return userFound;
+    }
+  </script>
+</body>
+</html>

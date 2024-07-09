@@ -1,0 +1,203 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta http-equiv="X-UA-Compatible" content="IE=edge" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Sign Up</title>
+    <style>
+      body {
+        font-family: 'Arial', sans-serif;
+        background-color: #e9f7fa;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        height: 100vh;
+        margin: 0;
+        animation: fadeIn 1s ease-in-out;
+      }
+
+      @keyframes fadeIn {
+        from {
+          opacity: 0;
+        }
+        to {
+          opacity: 1;
+        }
+      }
+
+      form {
+        display: flex;
+        flex-direction: column;
+        width: 400px;
+        padding: 30px;
+        background-color: white;
+        border-radius: 15px;
+        box-shadow: 0 6px 12px rgba(0, 0, 0, 0.1);
+        animation: slideIn 0.8s ease-out;
+      }
+
+      @keyframes slideIn {
+        from {
+          transform: translateY(20px);
+          opacity: 0;
+        }
+        to {
+          transform: translateY(0);
+          opacity: 1;
+        }
+      }
+
+      h2 {
+        text-align: center;
+        color: #333;
+      }
+
+      #para {
+        text-align: center;
+        color: #666;
+        margin-bottom: 20px;
+      }
+
+      label {
+        margin-bottom: 5px;
+        color: #333;
+      }
+
+      input {
+        padding: 12px;
+        margin-bottom: 15px;
+        border: 1px solid #ddd;
+        border-radius: 10px;
+        font-size: 16px;
+        transition: border-color 0.3s ease;
+      }
+
+      input:focus {
+        border-color: #009688;
+        outline: none;
+      }
+
+      button {
+        padding: 12px;
+        margin-top: 20px;
+        background-color: #009688;
+        color: white;
+        border: none;
+        border-radius: 10px;
+        font-size: 18px;
+        cursor: pointer;
+        transition: background-color 0.3s ease, transform 0.2s ease;
+      }
+
+      button:hover {
+        background-color: #00796b;
+        transform: translateY(-2px);
+      }
+
+      #discri {
+        font-size: 14px;
+        color: #666;
+        margin-top: 10px;
+        line-height: 1.5;
+      }
+
+      #discri a {
+        color: #009688;
+        text-decoration: underline;
+        transition: color 0.3s ease;
+      }
+
+      #discri a:hover {
+        color: #00796b;
+      }
+
+      hr {
+        border: none;
+        border-top: 1px solid #ddd;
+        margin: 20px 0;
+      }
+
+      #href {
+        text-align: center;
+        display: block;
+        margin-top: 20px;
+        color: #009688;
+        text-decoration: none;
+        font-size: 18px;
+        transition: color 0.3s ease, transform 0.2s ease;
+      }
+
+      #href:hover {
+        color: #00796b;
+        transform: translateY(-2px);
+      }
+    </style>
+  </head>
+  <body>
+    <form>
+      <h2>Create An Account</h2>
+      <hr />
+      <p id="para">
+        Welcome to SHOP-NEXT!
+      </p>
+      <label for="name">Name*</label>
+      <input id="name" type="text" required />
+      <label for="email">Email*</label>
+      <input id="email" type="email" required />
+      <label for="password">Password*</label>
+      <input
+        type="password"
+        autocomplete="current-password"
+        required
+        id="password"
+      />
+
+      <button id="signup">SIGN UP</button>
+      <div id="discri">
+        By creating an account, you agree to SHOP-NEXT's
+        <a href="">terms of use</a> and
+        <a href="">privacy policy.</a> Landlines, VoIP, and prepaid phones are
+        not supported. Standard message & data rates may apply. Message
+        frequency may vary. Reply HELP for help, and STOP to cancel.
+        <a href="">Contact us </a> for more information.
+      </div>
+      <hr />
+      <h2>Already Have an Account?</h2>
+      <a href="signin.html" id="href">SIGN IN</a>
+    </form>
+
+    <script>
+      let form = document.querySelector("form");
+
+      let userData = JSON.parse(localStorage.getItem("userData")) || [];
+
+      form.addEventListener("submit", function (event) {
+        event.preventDefault();
+        let data = {
+          name: form.name.value,
+          email: form.email.value,
+          password: form.password.value,
+        };
+        if (checkEmails(data.email) === true) {
+          userData.push(data);
+          localStorage.setItem("userData", JSON.stringify(userData));
+          alert("Signup Successfully");
+        } else {
+          alert("Email already exists");
+        }
+      });
+
+      function checkEmails(email) {
+        let filtered = userData.filter(function (element) {
+          return email === element.email;
+        });
+        if (filtered.length > 0) {
+          return false;
+        } else {
+          return true;
+        }
+      }
+    </script>
+  </body>
+</html>
